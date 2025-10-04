@@ -25,49 +25,52 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-
-	& .btnCamposWrapper {
-		display: flex;
-		gap: 0.3rem;
-
-		& input:nth-child(1) {
-			width: 70%;
-		}
-		& input:nth-child(2) {
-			width: 30%;
-		}
-	}
-
-	& .urlCamposWrapper {
-		display: flex;
-		gap: 0.3rem;
-
-		& input:nth-child(1) {
-			width: 70%;
-		}
-		& input:nth-child(2) {
-			width: 30%;
-		}
-	}
-
-	& input {
-		width: 100%;
-		padding: 0.5rem;
-	}
-	& button {
-		padding: 0.5rem;
-	}
 }
 
+/* urlCamposWrapper */
+#cadastrarLinha .urlCamposWrapper {
+	display: flex;
+	gap: 0.3rem;
+}
+#cadastrarLinha .urlCamposWrapper input:nth-child(1) {
+	width: 70%;
+}
+#cadastrarLinha .urlCamposWrapper input:nth-child(2) {
+	width: 30%;
+}
+
+/* btnCamposWrapper */
+#cadastrarLinha .btnCamposWrapper {
+	display: flex;
+	gap: 0.3rem;
+}
+#cadastrarLinha .btnCamposWrapper input:nth-child(1) {
+	width: 70%;
+}
+#cadastrarLinha .btnCamposWrapper input:nth-child(2) {
+	width: 30%;
+}
+
+/* inputs e botão */
+#cadastrarLinha input {
+	width: 100%;
+	padding: 0.5rem;
+}
+#cadastrarLinha button {
+	padding: 0.5rem;
+}
+
+/* campos dinâmicos */
 .camposDinamicosInputWrapper,
 .camposPadroesInputWrapper {
 	display: flex;
 	gap: 0.3rem;
-
-	& input:nth-child(1) {
-		width: 80% !important;
-	}
-	& input:nth-child(2) {
-		width: 20% !important;
-	}
+}
+.camposDinamicosInputWrapper input:nth-child(1),
+.camposPadroesInputWrapper input:nth-child(1) {
+	width: 80% !important;
+}
+.camposDinamicosInputWrapper input:nth-child(2),
+.camposPadroesInputWrapper input:nth-child(2) {
+	width: 20% !important;
 }
