@@ -150,7 +150,7 @@
 			const formData = new FormData(form);
 			const body = new URLSearchParams(formData);
 
-			fetch("http://localhost:3333/cadastrar", { method: "POST", body });
+			fetch("/cadastrar", { method: "POST", body });
 		});
 	</script>
 </html>
