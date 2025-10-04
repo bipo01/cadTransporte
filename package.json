@@ -4,6 +4,7 @@
 	"main": "script.js",
 	"type": "module",
 	"scripts": {
+		"postinstall": "npx playwright install --with-deps",
 		"start": "node script.js",
 		"dev": "nodemon script.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
