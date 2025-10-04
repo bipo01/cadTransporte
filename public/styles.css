@@ -1,0 +1,73 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 100vh;
+	background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.581));
+	padding: 2rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+
+#cadastrarLinha {
+	background: white;
+	padding: 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.378);
+
+	width: 50%;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	& .btnCamposWrapper {
+		display: flex;
+		gap: 0.3rem;
+
+		& input:nth-child(1) {
+			width: 70%;
+		}
+		& input:nth-child(2) {
+			width: 30%;
+		}
+	}
+
+	& .urlCamposWrapper {
+		display: flex;
+		gap: 0.3rem;
+
+		& input:nth-child(1) {
+			width: 70%;
+		}
+		& input:nth-child(2) {
+			width: 30%;
+		}
+	}
+
+	& input {
+		width: 100%;
+		padding: 0.5rem;
+	}
+	& button {
+		padding: 0.5rem;
+	}
+}
+
+.camposDinamicosInputWrapper,
+.camposPadroesInputWrapper {
+	display: flex;
+	gap: 0.3rem;
+
+	& input:nth-child(1) {
+		width: 80% !important;
+	}
+	& input:nth-child(2) {
+		width: 20% !important;
+	}
+}

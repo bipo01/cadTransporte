@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cadastro Script</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<form id="cadastrarLinha">
+			<div class="urlCamposWrapper">
+				<input required type="text" name="url" id="url" placeholder="URL" />
+				<input type="number" name="camposPadroes" id="camposPadroes" placeholder="Campos padrões" />
+			</div>
+
+			<div class="btnCamposWrapper">
+				<input type="text" name="btnSubmit" id="btnSubmit" placeholder="Botão de submit (element[id='xxx'])" />
+				<input type="number" name="camposDinamicos" id="camposDinamicos" placeholder="Campos dinâmicos" />
+			</div>
+
+			<input type="text" name="linha" id="linha" placeholder="linha" />
+			<button type="submit">Cadastrar</button>
+		</form>
+	</body>
+
+	<script>
+		const form = document.querySelector("#cadastrarLinha");
+		const url = document.querySelector("#url");
+		const linha = document.querySelector("#linha");
+		const camposDinamicos = document.querySelector("#camposDinamicos");
+		const camposPadroes = document.querySelector("#camposPadroes");
+		const btnSubmit = document.querySelector("#btnSubmit");
+		const btnCamposWrapper = document.querySelector(".btnCamposWrapper");
+
+		camposDinamicos.addEventListener("input", (e) => {
+			document.querySelectorAll(".camposDinamicosInputWrapper")?.forEach((c) => {
+				c.remove();
+			});
+
+			for (let index = 0; index < e.target.value; index++) {
+				const html = `
+				<div class="camposDinamicosInputWrapper">
+					<input type="text" name="inp${index + 1}" id="inp${index + 1}" placeholder="Input (element[id='xxx'])" />
+					<input type="number" name="valor${index + 1}" id="valor${index + 1}" placeholder="Coluna" min="1" />
+				</div>
+				
+				`;
+				linha.insertAdjacentHTML("beforebegin", html);
+			}
+		});
+
+		camposPadroes.addEventListener("input", (e) => {
+			document.querySelectorAll(".camposPadroesInputWrapper")?.forEach((c) => {
+				c.remove();
+			});
+
+			for (let index = 0; index < e.target.value; index++) {
+				const html = `
+				<div class="camposPadroesInputWrapper">
+					<input type="text" name="inpPadrao${index + 1}" id="inpPadrao${index + 1}" placeholder="Input (element[id='xxx'])" />
+					<input type="text" name="valorPadrao${index + 1}" id="valorPadrao${index + 1}" placeholder="Valor" />
+				</div>
+				
+				`;
+				btnCamposWrapper.insertAdjacentHTML("beforebegin", html);
+			}
+		});
+
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
+
+			const formData = new FormData(form);
+			const body = new URLSearchParams(formData);
+
+			fetch("http://localhost:3333/cadastrar", { method: "POST", body });
+		});
+	</script>
+</html>
